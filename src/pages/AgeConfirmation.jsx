@@ -3,6 +3,20 @@ import './styles/AgeConfirmation.css';
 
 export const AgeConfirmation = () =>
 {
+    // Create map for month and day validation
+    const myMap = new Map();
+    myMap.set(1, 31)
+    myMap.set(2, 28)
+    myMap.set(3, 31)
+    myMap.set(4, 30)
+    myMap.set(5, 31)
+    myMap.set(6, 30)
+    myMap.set(7, 31)
+    myMap.set(8, 31)
+    myMap.set(9, 30)
+    myMap.set(10, 31)
+    myMap.set(11, 30)
+    myMap.set(12, 31)
 
     const dayRef = useRef(null);
     const monthRef = useRef(null);
@@ -53,6 +67,55 @@ export const AgeConfirmation = () =>
         {
             setYear(inputYear);
         }
+    }
+
+    const verifyAge = () =>
+    {
+        let inputMonth = monthRef.current.value;
+        let inputDay = dayRef.current.value;
+        let inputYear  = yearRef.current.value;
+
+        let currentDate = new Date();
+
+        if(inputMonth < 0 || inputMonth > 12)
+        {
+            return false;
+        }
+        else if(inputDay < myMap.get(inputMonth) || inputDay > myMap.get(inputMonth))
+        {
+            return false;
+        }
+        else if(inputYear < 0 || inputYear > 2022)
+        {
+            return false 
+        }
+        else if(((currentDate.getMonth() + 1) - inputMonth) >= 0)
+        {
+            if(currentDate.getDate() - inputDay >= 0)
+            {
+                if(currentDate.getFullYear() - inputYear >= 18)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else 
+        {
+            return false;
+        }
+    }
+
+    const goToHome = () =>
+    {
+        console.log(verifyAge())
     }
 
     return (
@@ -124,6 +187,7 @@ export const AgeConfirmation = () =>
 
             <button 
             className="enter"
+            onClick={goToHome}
             >
                 Enter
             </button>
