@@ -69,6 +69,7 @@ export const AgeConfirmation = () =>
         }
     }
 
+    // Big O(1) to verify age
     const verifyAge = () =>
     {
         let inputMonth = monthRef.current.value;
