@@ -6,7 +6,7 @@ export const Home = () =>
         <div 
         className="Home"
         >
-
+            Home page
         </div>
     )
 }

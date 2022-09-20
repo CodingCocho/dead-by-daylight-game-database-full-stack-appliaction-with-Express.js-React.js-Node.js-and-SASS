@@ -1,4 +1,5 @@
 import {useRef,useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import './styles/AgeConfirmation.css';
 
 export const AgeConfirmation = () =>
@@ -26,6 +27,7 @@ export const AgeConfirmation = () =>
     const [month,setMonth] = useState('');
     const [year,setYear] = useState('');
 
+    const navigate = useNavigate();
 
     const updateDay = () =>
     {
@@ -77,6 +79,12 @@ export const AgeConfirmation = () =>
         let inputYear  = yearRef.current.value;
 
         let currentDate = new Date();
+        currentDate.setFullYear(currentDate.getFullYear() - 18);
+        console.log(currentDate)
+        console.log(inputYear)
+        console.log(currentDate.getFullYear())
+        console.log(currentDate.getMonth() + 1)
+        console.log(inputMonth);
 
         if(inputMonth < 0 || inputMonth > 12)
         {
@@ -90,11 +98,11 @@ export const AgeConfirmation = () =>
         {
             return false 
         }
-        else if(((currentDate.getMonth() + 1) - inputMonth) >= 0)
+        else if(inputYear <= currentDate.getFullYear())
         {
-            if(currentDate.getDate() - inputDay >= 0)
+            if(!(currentDate.getDate() - inputDay < 0))
             {
-                if(currentDate.getFullYear() - inputYear >= 18)
+                if(!((currentDate.getMonth() + 1) - inputMonth) >= 0)
                 {
                     return true;
                 }
@@ -116,14 +124,20 @@ export const AgeConfirmation = () =>
 
     const goToHome = () =>
     {
-        console.log(verifyAge())
+        if(verifyAge())
+        {
+            navigate('/home')
+        }
+        else
+        {
+            alert("Invalid age")
+        }
     }
 
     return (
         <div 
         className="AgeConfirmation"
         >
-
             <p 
             className='header'
             title="header"
@@ -132,7 +146,7 @@ export const AgeConfirmation = () =>
             </p>
 
             <div 
-            className="desktop-grid-container"
+            className="grid-container"
             >
                 <label 
                 htmlFor="day" 
