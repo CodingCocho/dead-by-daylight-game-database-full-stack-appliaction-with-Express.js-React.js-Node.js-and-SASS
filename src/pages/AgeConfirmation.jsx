@@ -90,15 +90,15 @@ export const AgeConfirmation = () =>
         {
             return false;
         }
-        else if(inputDay < myMap.get(inputMonth) || inputDay > myMap.get(inputMonth))
+        if(inputDay < myMap.get(inputMonth) || inputDay > myMap.get(inputMonth))
         {
             return false;
         }
-        else if(inputYear < 0 || inputYear > 2022)
+        if(inputYear < 0 || inputYear > 2022)
         {
             return false 
         }
-        else if(inputYear <= currentDate.getFullYear())
+         if(inputYear === currentDate.getFullYear())
         {
             if(!(currentDate.getDate() - inputDay < 0))
             {
@@ -106,15 +106,11 @@ export const AgeConfirmation = () =>
                 {
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
             }
-            else
-            {
-                return false;
-            }
+        }
+         if(currentDate.getFullYear() - inputYear > 0)
+        {
+            return true;
         }
         else 
         {

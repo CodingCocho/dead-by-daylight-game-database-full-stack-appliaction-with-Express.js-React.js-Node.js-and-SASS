@@ -1,0 +1,140 @@
+$fontFamily: 'Griffy', cursive;
+
+*
+{
+    box-sizing: border-box !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.Navbar
+{
+    background-color: black;
+    height: 80px;
+    width: 100vw !important;
+    .desktop-component
+    {
+        display: none;
+    }
+    .mobile-component
+    {
+        display: block;
+        height: 80px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 375px !important;
+        .nav-container
+        {
+            align-items: center !important;
+            display: flex !important;
+            height: 80px !important;
+            justify-content: flex-end !important;
+            padding-right: 20px !important;
+            width: 100% !important;
+            .mori-icon
+            {
+                cursor: pointer !important;
+                height: 60px !important;
+                width: 60px !important;   
+            }
+            #open
+            {
+                display: block;
+            }
+            #close
+            {
+                display: none;
+            }
+        }
+        .drop-down-container
+        {
+            align-items: center !important;
+            display: none;
+            background-image: url('../../images/blood\ background.jpg');
+            background-size: cover;
+            flex-direction: column !important;
+            justify-content: center !important;
+            height: 200px !important;
+            padding: 20px !important;
+            padding-top: 40px !important;
+            width: 375px !important;
+            .drop-down-link
+            {
+                color: white !important;
+                cursor: pointer !important;
+                font-size: 24px !important;
+                font-family: $fontFamily !important;
+                margin-bottom: 20px !important;
+                text-decoration: none !important;
+                width: fit-content !important;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px)
+{
+    .Navbar
+    {
+        height: 140px !important;
+        width: 100vw !important;
+        .desktop-component
+        {
+            align-items: center !important;
+            display: flex;
+            justify-content: space-between !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            width: 1024px !important;
+            .left-flex-container
+            {
+                align-items: center !important;
+                display: flex !important;
+                height: 140px !important;
+                padding-left: 80px !important;
+                width: fit-content !important;
+                .home-icon
+                {
+                    cursor: pointer;
+                    height: 110px !important;
+                    width: 140px !important;
+                }
+            }
+            .right-flex-container
+            {
+                align-items: center !important;
+                display: flex !important;
+                height: 140px !important;
+                padding-right: 40px !important;
+                width: fit-content !important;
+                .desktop-link
+                {
+                    color: white !important;
+                    font-family: $fontFamily !important;
+                    font-size: 1.5rem !important;
+                    margin-right: 40px !important;
+                    text-decoration: none !important;
+                }
+            }
+        }
+        .mobile-component
+        {
+            display: none;
+            .nav-container
+            {
+                #open
+                {
+                    display: none !important; 
+                }
+                #close
+                {
+                    display: none !important;
+                }
+            }
+            .drop-down-container
+            {
+                display: none !important;
+            }
+        }
+    }
+}
