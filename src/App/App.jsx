@@ -19,12 +19,12 @@ function App() {
         <Routes>
           <Route
           element={<AgeConfirmation />}
-          path="/home"
+          path="/"
           >
           </Route>
           <Route
           element={<Home />}
-          path="/"
+          path="/home"
           >
           </Route>
         </Routes>

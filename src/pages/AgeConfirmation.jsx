@@ -77,45 +77,18 @@ export const AgeConfirmation = () =>
         let inputMonth = monthRef.current.value;
         let inputDay = dayRef.current.value;
         let inputYear  = yearRef.current.value;
-
-        let currentDate = new Date();
-        currentDate.setFullYear(currentDate.getFullYear() - 18);
-        console.log(currentDate)
-        console.log(inputYear)
-        console.log(currentDate.getFullYear())
-        console.log(currentDate.getMonth() + 1)
-        console.log(inputMonth);
-
-        if(inputMonth < 0 || inputMonth > 12)
-        {
-            return false;
-        }
-        if(inputDay < myMap.get(inputMonth) || inputDay > myMap.get(inputMonth))
-        {
-            return false;
-        }
-        if(inputYear < 0 || inputYear > 2022)
-        {
-            return false 
-        }
-         if(inputYear === currentDate.getFullYear())
-        {
-            if(!(currentDate.getDate() - inputDay < 0))
-            {
-                if(!((currentDate.getMonth() + 1) - inputMonth) >= 0)
-                {
-                    return true;
-                }
-            }
-        }
-         if(currentDate.getFullYear() - inputYear > 0)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        let userDob = new Date(inputYear, inputMonth, inputDay);  
+        //calculate month difference from current date in time  
+        let month_diff = Date.now() - userDob.getTime();  
+          
+        //convert the calculated difference in date format  
+        let age_dt = new Date(month_diff);   
+          
+        //extract year from date      
+        let year = age_dt.getUTCFullYear();  
+          
+        //now calculate the age of the user  
+        let age = Math.abs(year - 1970);  
     }
 
     const goToHome = () =>
