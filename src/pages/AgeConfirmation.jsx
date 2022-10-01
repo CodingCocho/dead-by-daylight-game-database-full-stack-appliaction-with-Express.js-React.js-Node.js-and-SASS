@@ -1,5 +1,6 @@
-import {useRef,useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import {useRef} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {Popup} from '../components/Popup';
 import './styles/AgeConfirmation.css';
 
 export const AgeConfirmation = () =>
@@ -23,10 +24,6 @@ export const AgeConfirmation = () =>
     const monthRef = useRef(null);
     const yearRef = useRef(null);
 
-    const [day,setDay] = useState('');
-    const [month,setMonth] = useState('');
-    const [year,setYear] = useState('');
-
     const navigate = useNavigate();
 
     const updateDay = () =>
@@ -39,7 +36,7 @@ export const AgeConfirmation = () =>
         }
         else
         {
-            setDay(inputDay);
+            dayRef.current.value = inputDay;
         }
     }
 
@@ -53,7 +50,7 @@ export const AgeConfirmation = () =>
         }
         else
         {
-            setMonth(inputMonth);
+            monthRef.current.value = inputMonth;
         }
     }
 
@@ -67,28 +64,28 @@ export const AgeConfirmation = () =>
         }
         else
         {
-            setYear(inputYear);
+            yearRef.current.value = inputYear;
         }
     }
 
     // Big O(1) to verify age
     const verifyAge = () =>
     {
-        let inputMonth = monthRef.current.value;
+        let inputMonth = monthRef.current.value - 1;
         let inputDay = dayRef.current.value;
         let inputYear  = yearRef.current.value;
-        let userDob = new Date(inputYear, inputMonth, inputDay);  
-        //calculate month difference from current date in time  
-        let month_diff = Date.now() - userDob.getTime();  
-          
-        //convert the calculated difference in date format  
-        let age_dt = new Date(month_diff);   
-          
-        //extract year from date      
-        let year = age_dt.getUTCFullYear();  
-          
-        //now calculate the age of the user  
-        let age = Math.abs(year - 1970);  
+        const userDob = new Date(inputYear, inputMonth, inputDay); 
+        console.log(userDob) 
+        const today = new Date();
+        const validMinDate = new Date(today.getFullYear()-18, today.getMonth(), today.getDate(), today.getHours(), today.getMinutes());
+        if(userDob > validMinDate)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
     const goToHome = () =>
@@ -99,7 +96,8 @@ export const AgeConfirmation = () =>
         }
         else
         {
-            alert("Invalid age")
+            const popup = document.getElementById('popup-component');
+            popup.style.display = 'flex';
         }
     }
 
@@ -175,6 +173,7 @@ export const AgeConfirmation = () =>
             >
                 Enter
             </button>
+            <Popup />
         </div>
     )
 }
