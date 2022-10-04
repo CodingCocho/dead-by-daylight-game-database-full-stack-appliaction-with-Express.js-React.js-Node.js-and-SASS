@@ -1,14 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { fetchSurvivors } from '../api/Deadbydaylight'
+// import { createSlice } from '@reduxjs/toolkit'
+// import { fetchSurvivors } from '../api/Deadbydaylight'
 
-const initialState = [];
+// const initialState = [];
 
-const survivorsSlice = createSlice(
-    {
-        name: 'survivors',
-        initialState,
-        reducers: {}
-    }
-)
+// const survivorsSlice = createSlice(
+//     {
+//         name: 'survivors',
+//         initialState,
+//         reducers: {}
+//     }
+// )
 
-export default survivorsSlice.reducer;
+// export default survivorsSlice.reducer;
