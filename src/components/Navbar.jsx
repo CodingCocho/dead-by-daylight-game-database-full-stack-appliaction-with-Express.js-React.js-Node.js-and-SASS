@@ -39,7 +39,7 @@ export const Navbar = () =>
             >
                 <Link 
                 className="left-flex-container"
-                to="/"
+                to="/home"
                 >
                     <img 
                     alt="home-icon"

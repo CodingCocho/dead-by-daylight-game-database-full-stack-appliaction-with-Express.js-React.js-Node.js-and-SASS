@@ -17,7 +17,7 @@
   height: 80px !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  width: 375px !important;
+  width: 100% !important;
 }
 .Navbar .mobile-component .nav-container {
   align-items: center !important;
@@ -48,7 +48,7 @@
   height: 200px !important;
   padding: 20px !important;
   padding-top: 40px !important;
-  width: 375px !important;
+  width: 100% !important;
 }
 .Navbar .mobile-component .drop-down-container .drop-down-link {
   color: white !important;
@@ -73,7 +73,7 @@
     justify-content: space-between !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    width: 1024px !important;
+    width: 100% !important;
   }
   .Navbar .desktop-component .left-flex-container {
     align-items: center !important;

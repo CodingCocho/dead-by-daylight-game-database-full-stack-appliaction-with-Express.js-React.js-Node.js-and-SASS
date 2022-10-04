@@ -26,6 +26,16 @@ function App() {
           path="/home"
           >
           </Route>
+          <Route
+          element={<Home />}
+          path="/home"
+          >
+          </Route>
+          <Route
+          element={<Home />}
+          path="/home"
+          >
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

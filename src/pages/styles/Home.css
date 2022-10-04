@@ -2,4 +2,110 @@
   box-sizing: border-box !important;
   margin: 0px !important;
   padding: 0px !important;
+}
+
+.Home .desktop-page {
+  background-image: url("../../images/forest-moon-background.jpg");
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 140px) !important;
+  width: 100vw !important;
+}
+.Home .desktop-page .header {
+  -webkit-animation: glitch 1s linear infinite !important;
+          animation: glitch 1s linear infinite !important;
+  color: white !important;
+  font-family: "Griffy", cursive;
+  font-size: 6rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 1024px !important;
+  padding-top: 40px !important;
+  text-align: center !important;
+}
+.Home .desktop-page .grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-top: 60px !important;
+  place-items: center !important;
+  width: 1024px !important;
+}
+.Home .desktop-page .grid img {
+  height: 300px !important;
+  width: 400px !important;
+}
+.Home .desktop-page .grid p {
+  color: white !important;
+  font-family: "Griffy", cursive;
+  font-size: 2rem !important;
+  padding-top: 40px !important;
+  text-align: center !important;
+}
+.Home .desktop-page .header-2 {
+  -webkit-animation: glitch 1s linear infinite !important;
+          animation: glitch 1s linear infinite !important;
+  color: white !important;
+  font-family: "Griffy", cursive;
+  font-size: 5rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 1024px !important;
+  padding-top: 40px !important;
+  text-align: center !important;
+}
+.Home .desktop-page .image-row {
+  align-items: center !important;
+  display: flex !important;
+  justify-content: space-evenly !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 40px 0px !important;
+  width: 100% !important;
+}
+.Home .desktop-page .image-row .background {
+  background-image: url("../../images/feature background.jpg");
+  background-repeat: no-repeat !important;
+  background-position: -50px;
+  background-size: cover !important;
+  cursor: pointer !important;
+  height: 350px !important;
+  transition: all ease 0.3s !important;
+  width: 250px !important;
+}
+.Home .desktop-page .image-row .background:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 20px 40px 5px rgba(0, 0, 0, 0.75);
+}
+.Home .desktop-page .image-row .background img {
+  height: 100%;
+  width: 100%;
+}
+.Home .mobile-page {
+  display: none;
+}
+
+@-webkit-keyframes glitch {
+  2%, 64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
 }/*# sourceMappingURL=Home.css.map */
