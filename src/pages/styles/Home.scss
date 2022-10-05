@@ -3,8 +3,8 @@ $fontFamily: 'Griffy', cursive;
 *
 {
     box-sizing: border-box !important;
-    margin: 0px !important;
-    padding: 0px !important;
+    margin: 0px;
+    padding: 0px;
 }
 
 .Home
@@ -14,6 +14,7 @@ $fontFamily: 'Griffy', cursive;
         background-image: url('../../images/forest-moon-background.jpg');
         background-size: cover !important;
         background-repeat: no-repeat;
+        display: block;
         min-height: calc(100vh - 140px) !important;
         width: 100vw !important;
         .header
@@ -80,6 +81,7 @@ $fontFamily: 'Griffy', cursive;
                 background-size: cover !important;
                 cursor: pointer !important;
                 height: 350px !important;
+                padding: 30px !important;
                 transition: all ease .3s !important;
                 width: 250px !important;
                 &:hover
@@ -111,5 +113,106 @@ $fontFamily: 'Griffy', cursive;
     }
     62%{
     transform: translate(0,0) skew(5deg); 
+    }
+}
+
+@media only screen and (max-width: 1024px)
+{
+    .Home
+    {
+        .desktop-page
+        {
+            display: none;
+        }
+        .mobile-page
+        {
+            background-image: url('../../images/forest-moon-background.jpg');
+            background-size: cover !important;
+            background-repeat: no-repeat;
+            display: block;
+            min-height: calc(100vh - 80px) !important;
+            width: 100vw !important;
+            .header
+            {
+                animation: glitch 1s linear infinite !important;
+                color: white !important;
+                display: block;
+                font-family: $fontFamily;
+                font-size: 2.5rem !important;
+                height: 100px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                max-width: 350px !important;
+                padding-top: 40px !important;
+                text-align: center !important;
+            }
+            .flex-container
+            {
+                display: flex !important;
+                flex-direction: column !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                width: 100vw !important;
+                img
+                {
+                    display: block !important;
+                    height: 300px !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                    padding-top: 40px !important;
+                    width: 75% !important;
+                }
+                p
+                {
+                    color: white !important;
+                    font-family: $fontFamily;
+                    font-size: 2rem !important;
+                    padding-top: 40px !important;
+                    text-align: center !important;
+                }
+            }
+            .header-2
+            {
+                animation: glitch 1s linear infinite !important;
+                color: white !important;
+                font-family: $fontFamily;
+                font-size: 2.5rem !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                max-width: 100vw !important;
+                padding-top: 80px !important;
+                text-align: center !important;
+            }
+            .images
+            {
+                width: 100vw !important;
+                .background
+                {
+                    background-image: url('../../images/feature\ background.jpg');
+                    background-repeat: no-repeat !important;
+                    background-position: -50px;
+                    background-size: cover !important;
+                    display: block;
+                    cursor: pointer !important;
+                    height: 350px !important;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 40px !important;
+                    padding: 30px;
+                    transition: all ease .3s !important;
+                    width: 250px !important;
+                    &:hover
+                    {
+                        transform: translateY(-5px);
+                        box-shadow: 0px 20px 40px 5px rgba(0, 0, 0, 0.75);
+                    }
+                    img
+                    {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+        }
     }
 }

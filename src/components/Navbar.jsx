@@ -12,6 +12,11 @@ export const Navbar = () =>
         const redMori = document.getElementById('open')
         const yellowMori = document.getElementById('close')
         const mobileMenu = document.getElementById('drop-down-menu')
+        const mobileHeader1 = document.getElementById('mobile-header-1')
+        const mobileHeader2 = document.getElementById('mobile-header-2')
+        const mobileImage = document.getElementById('mobile-home-image')
+        const killerMobileGrid = document.getElementById('killer-grid');
+        const survivorMobileGrid = document.getElementById('survivor-grid');
         // Mobile menu is in open state
         if(redMori.style.display === 'none')
         {
@@ -19,6 +24,20 @@ export const Navbar = () =>
             redMori.style.display = 'block';
             yellowMori.style.display = 'none';
             mobileMenu.style.display = 'none';
+            if(mobileHeader1 && mobileHeader2 && mobileImage)
+            {
+                mobileHeader1.style.display = 'block';
+                mobileHeader2.style.display = 'block';
+                mobileImage.style.marginTop = '0px';
+            }
+            if(killerMobileGrid)
+            {
+                killerMobileGrid.style.paddingTop = '20px';
+            }
+            if(survivorMobileGrid)
+            {
+                survivorMobileGrid.style.paddingTop = '20px'
+            }
         }
         // Mobile menu is in close state
         else
@@ -27,6 +46,20 @@ export const Navbar = () =>
             redMori.style.display = 'none';
             yellowMori.style.display = 'block';
             mobileMenu.style.display = 'flex';
+            if(mobileHeader1 && mobileHeader2)
+            {
+                mobileHeader1.style.display = 'none';
+                mobileHeader2.style.display = 'none';
+                mobileImage.style.marginTop = '200px';
+            }
+            if(killerMobileGrid)
+            {
+                killerMobileGrid.style.paddingTop = '220px';
+            }
+            if(survivorMobileGrid)
+            {
+                survivorMobileGrid.style.paddingTop = '220px'
+            }
         }
     }
 
@@ -52,11 +85,13 @@ export const Navbar = () =>
                 >
                     <Link
                     className='desktop-link'
+                    to="/killers"
                     >
                         Killers
                     </Link>
                     <Link
                     className='desktop-link'
+                    to="/survivors"
                     >
                         Survivors
                     </Link>
@@ -89,11 +124,19 @@ export const Navbar = () =>
                >
                     <Link
                     className='drop-down-link'
+                    to="/home"
+                    >
+                        Home
+                    </Link>
+                    <Link
+                    className='drop-down-link'
+                    to="/killers"
                     >
                         Killers
                     </Link>
                     <Link
                     className='drop-down-link'
+                    to="/survivors"
                     >
                         Survivors
                     </Link>

@@ -1,0 +1,55 @@
+*
+{
+    box-sizing: border-box !important;
+    padding: 0px;
+    margin: 0px;
+}
+
+.Survivors
+{
+    .page
+    {
+        background-image: url('../../images/forest-moon-background.jpg');
+        background-size: cover !important;
+        background-repeat: no-repeat;
+        display: block;
+        min-height: calc(100vh - 80px) !important;
+        width: 100vw !important;
+        .mobile-grid
+        {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 20px;
+            place-items: center !important;
+            width: 100vw !important;
+        }
+        .desktop-grid
+        {
+            display: none !important;
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px)
+{
+    .Survivors
+    {
+        .page
+        {
+            min-height: calc(100vh - 140px) !important;
+            .mobile-grid
+            {
+                display: none !important;
+            }
+            .desktop-grid
+            {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                padding-bottom: 20px;
+                padding-top: 20px;
+                place-items: center !important;
+                width: 100vw !important;
+            }
+        }
+    }
+}

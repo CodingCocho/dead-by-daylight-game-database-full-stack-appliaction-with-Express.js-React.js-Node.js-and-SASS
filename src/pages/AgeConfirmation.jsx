@@ -74,8 +74,16 @@ export const AgeConfirmation = () =>
         let inputMonth = monthRef.current.value - 1;
         let inputDay = dayRef.current.value;
         let inputYear  = yearRef.current.value;
+        console.log(inputMonth);
+        if(isNaN(inputDay) || isNaN(inputMonth) || isNaN(inputYear))
+        {
+            return false;
+        }
+        if(!inputDay || !inputYear  || !(inputMonth+1))
+        {
+            return false;
+        }
         const userDob = new Date(inputYear, inputMonth, inputDay); 
-        console.log(userDob) 
         const today = new Date();
         const validMinDate = new Date(today.getFullYear()-18, today.getMonth(), today.getDate(), today.getHours(), today.getMinutes());
         if(userDob > validMinDate)

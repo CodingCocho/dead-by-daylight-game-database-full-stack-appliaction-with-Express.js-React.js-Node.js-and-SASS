@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box !important;
+  padding: 0px;
+  margin: 0px;
+}
+
+.Character {
+  display: block;
+  height: 175px;
+  padding-top: 20px;
+  position: relative;
+  width: 150px;
+}
+.Character .component {
+  cursor: pointer !important;
+  height: 100%;
+  width: 100%;
+}
+.Character .component img {
+  display: block;
+  height: 100% !important;
+  width: 100% !important;
+}
+.Character .component img:hover {
+  transform: translateY(-5px);
+  box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.75);
+}
+.Character .component .overlay-block {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+  color: transparent;
+  display: flex;
+  font-family: "Griffy", cursive;
+  height: 155px;
+  justify-content: center;
+  margin-top: 20px !important;
+  position: absolute !important;
+  width: 100%;
+  top: 0px;
+}
+.Character .component .overlay-block:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+@media only screen and (min-width: 1024px) {
+  .Character {
+    display: block;
+    height: 225px !important;
+    padding-top: 20px;
+    position: relative;
+    width: 175px !important;
+  }
+  .Character .overlay-block {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0);
+    color: transparent;
+    display: flex;
+    font-family: "Griffy", cursive;
+    height: 200px !important;
+    justify-content: center;
+    margin-top: 20px !important;
+    position: absolute !important;
+    width: 100%;
+    top: 0px;
+  }
+  .Character .overlay-block:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+}/*# sourceMappingURL=Character.css.map */

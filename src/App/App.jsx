@@ -2,14 +2,11 @@ import './styles/App.css';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import {AgeConfirmation} from '../pages/AgeConfirmation';
 import {Home} from '../pages/Home';
+import {Killers} from '../pages/Killers';
+import {Survivors} from '../pages/Survivors';
 
 function App() {
-
-
-
-  document.body.classList.add('body-styling');
-  
-  
+  document.body.classList.add('body-styling');  
   return (
     <div 
     className="App"
@@ -27,13 +24,17 @@ function App() {
           >
           </Route>
           <Route
-          element={<Home />}
-          path="/home"
+          element={<Killers />}
+          path="/killers"
           >
+          {/* <Route
+          element={<Killer />}
+          path="/killers"
+          > */}
           </Route>
           <Route
-          element={<Home />}
-          path="/home"
+          element={<Survivors />}
+          path="/survivors"
           >
           </Route>
         </Routes>
