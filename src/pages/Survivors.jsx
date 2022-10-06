@@ -53,11 +53,13 @@ export const Survivors = () =>
                 className="mobile-grid"
                 id="survivor-grid"
                 >
-                    {mySurvivors.map((survivor) =>
+                    {mySurvivors.map((survivor, index) =>
                     {
                         return (
                             <Character 
+                            id={index}
                             imgUrl={survivor.imgs.portrait}
+                            isKiller={false}
                             name={survivor.name}
                             />
                         )
@@ -66,11 +68,13 @@ export const Survivors = () =>
                 <div 
                 className="desktop-grid"
                 >
-                    {mySurvivors.map((survivor) =>
+                    {mySurvivors.map((survivor, index) =>
                     {
                         return (
                             <Character 
+                            id={index}
                             imgUrl={survivor.imgs.portrait}
+                            isKiller={false}
                             name={survivor.name}
                             />
                         )

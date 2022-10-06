@@ -5,6 +5,7 @@ import {useEffect, useState} from 'react';
 import {addKillers} from '../utilities/Killerslice';
 import {addSurvivors} from '../utilities/Survivorslice';
 import{useDispatch,useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {Navbar} from '../components/Navbar';
 import Ghostface from '../images/ghost-face-lore-ii.png';
 import YuJinLee from '../images/yun-jin-lee-lore-art.jfif';
@@ -43,11 +44,12 @@ const fetchKillers = async () =>
     }
 }  
 
-if(killers.length && survivors.length)
+if(killers.length && survivors.length && !fetchedKillers && !fetchedSurvivors)
 {
   dispatch(addKillers(killers))
   dispatch(addSurvivors(survivors))
 }
+
 
   useEffect(() => {
     if(!fetchedKillers && !fetchedSurvivors)
@@ -102,34 +104,42 @@ if(killers.length && survivors.length)
               <div 
               className="image-row"
               >
-                <div 
-                className="background">
+                <Link 
+                className="background"
+                to="/killers/18"
+                >
                   <img 
                   alt="ceno-bite" 
                   src="https://deadbydaylight.com/static/a42372001611a416085ed6290b4e8479/ea014/DBD_Killer_Pinhead_only_4c4626fd0c.webp" 
                   />
-                </div>
-                <div 
-                className="background">
+                </Link>
+                <Link 
+                className="background"
+                to="/survivors/12"
+                >
                   <img 
                   alt="detective-tapp"
                   src="https://deadbydaylight.com/static/1cd51fbdf2a23db9a1f73720e49662d4/1b615/DBD_Survivor_David_Tapp_only_372da5fad1.webp"  
                   />
-                </div>
-                <div 
-                className="background">
+                </Link>
+                <Link 
+                className="background"
+                to="/killers/7"
+                >
                   <img 
                   alt="huntress" 
                   src="https://deadbydaylight.com/static/f00176036126f7f53d2944c863882ab9/e3912/DBD_Killer_Huntress_only_7510a188be.webp" 
                   />
-                </div>
-                <div 
-                className="background">
+                </Link>
+                <Link 
+                className="background"
+                to="/survivors/17"
+                >
                   <img 
                   alt="ash" 
                   src="https://deadbydaylight.com/static/f864b1820f2137a46144a3c46c533011/0fb44/DBD_Survivor_Ash_only_03e2a515fa.webp" 
                   />
-                </div>
+                </Link>
               </div>
             </section>
             <section 
@@ -174,34 +184,42 @@ if(killers.length && survivors.length)
               <div 
               className="images"
               >
-                <div 
-                className="background">
+                <Link 
+                className="background"
+                to="/killers/18"
+                >
                   <img 
                   alt="ceno-bite" 
                   src="https://deadbydaylight.com/static/a42372001611a416085ed6290b4e8479/ea014/DBD_Killer_Pinhead_only_4c4626fd0c.webp" 
                   />
-                </div>
-                <div 
-                className="background">
+                </Link>
+                <Link 
+                className="background"
+                to="/survivors/12"
+                >
                   <img 
                   alt="detective-tapp"
                   src="https://deadbydaylight.com/static/1cd51fbdf2a23db9a1f73720e49662d4/1b615/DBD_Survivor_David_Tapp_only_372da5fad1.webp"  
                   />
-                </div>
-                <div 
-                className="background">
+                </Link>
+                <Link 
+                className="background"
+                to="/killers/7"
+                >
                   <img 
                   alt="huntress" 
                   src="https://deadbydaylight.com/static/f00176036126f7f53d2944c863882ab9/e3912/DBD_Killer_Huntress_only_7510a188be.webp" 
                   />
-                </div>
-                <div 
-                className="background">
+                </Link>
+                <Link 
+                className="background"
+                to="/survivors/17"
+                >
                   <img 
                   alt="ash" 
                   src="https://deadbydaylight.com/static/f864b1820f2137a46144a3c46c533011/0fb44/DBD_Survivor_Ash_only_03e2a515fa.webp" 
                   />
-                </div>
+                </Link>
               </div>
             </section>
         </div>

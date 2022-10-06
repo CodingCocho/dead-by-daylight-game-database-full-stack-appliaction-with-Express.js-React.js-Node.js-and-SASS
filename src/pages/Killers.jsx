@@ -4,7 +4,7 @@ import {addKillers} from '../utilities/Killerslice';
 import {useEffect, useState} from 'react';
 import {Character} from '../components/Character';
 import {Navbar} from '../components/Navbar';
-import{useDispatch,useSelector} from 'react-redux';;
+import{useDispatch,useSelector} from 'react-redux';
 
 
 export const Killers = () =>
@@ -53,11 +53,13 @@ export const Killers = () =>
                 className="mobile-grid"
                 id="killer-grid"
                 >
-                    {myKillers.map((killer) =>
+                    {myKillers.map((killer, index) =>
                     {
                         return (
                             <Character 
+                            id={index}
                             imgUrl={killer.imgs.portrait}
+                            isKiller={true}
                             name={killer.name}
                             />
                         )
@@ -66,11 +68,13 @@ export const Killers = () =>
                 <div 
                 className="desktop-grid"
                 >
-                    {myKillers.map((killer) =>
+                    {myKillers.map((killer, index) =>
                     {
                         return (
                             <Character 
+                            id={index}
                             imgUrl={killer.imgs.portrait}
+                            isKiller={true}
                             name={killer.name}
                             />
                         )

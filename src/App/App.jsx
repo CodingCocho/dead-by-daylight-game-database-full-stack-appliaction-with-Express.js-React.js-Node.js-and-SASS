@@ -2,8 +2,11 @@ import './styles/App.css';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import {AgeConfirmation} from '../pages/AgeConfirmation';
 import {Home} from '../pages/Home';
+import {Killer} from '../pages/Killer';
+import {Survivor} from '../pages/Survivor';
 import {Killers} from '../pages/Killers';
 import {Survivors} from '../pages/Survivors';
+
 
 function App() {
   document.body.classList.add('body-styling');  
@@ -27,14 +30,20 @@ function App() {
           element={<Killers />}
           path="/killers"
           >
-          {/* <Route
+          </Route>
+          <Route
           element={<Killer />}
-          path="/killers"
-          > */}
+          path="/killers/:killerId"
+          >
           </Route>
           <Route
           element={<Survivors />}
           path="/survivors"
+          >
+          </Route>
+          <Route
+          element={<Survivor />}
+          path="/survivors/:survivorId"
           >
           </Route>
         </Routes>

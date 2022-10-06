@@ -1,12 +1,14 @@
 import './styles/Character.css';
+import { Link } from "react-router-dom";
 
 export const Character = (props) =>
 {
-    const {imgUrl, name} = props;
+    const {id, imgUrl, isKiller, name} = props;
 
     return (
-        <div 
+        <Link 
         className="Character"
+        to={isKiller ? `/killers/${id}` : `/survivors/${id}`}
         >
             <section 
             className="component"
@@ -21,6 +23,6 @@ export const Character = (props) =>
                  </div>
             </section>
             
-        </div>
+        </Link>
     )
 }
