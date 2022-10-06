@@ -22,7 +22,7 @@ const fetchSurvivors = async () =>
 {
     try
     {
-        const survsResponse = await axios.get('https://dead-by-api.herokuapp.com/api/survs');
+        const survsResponse = await axios.get('https://thingproxy.freeboard.io/fetch/https://dead-by-api.herokuapp.com/api/survs');
         setSurvivors(survsResponse.data.data);
     }
     catch(err)
@@ -35,7 +35,7 @@ const fetchKillers = async () =>
 {
     try
     {
-        const killerResponse = await axios.get('https://dead-by-api.herokuapp.com/api/killers');
+        const killerResponse = await axios.get('https://thingproxy.freeboard.io/fetch/https://dead-by-api.herokuapp.com/api/killers');
         setKillers(killerResponse.data.data);
     }
     catch(err)
