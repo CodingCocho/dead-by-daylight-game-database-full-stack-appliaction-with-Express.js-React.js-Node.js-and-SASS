@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.c4cde58e.css",
-    "main.js": "/static/js/main.49cec35b.js",
+    "main.js": "/static/js/main.91225ab4.js",
     "static/media/ghost-face-lore-ii.png": "/static/media/ghost-face-lore-ii.72fdd59f47cb3d005534.png",
     "static/media/forest-moon-background.jpg": "/static/media/forest-moon-background.9499634fa84184646aaa.jpg",
     "static/media/feature background.jpg": "/static/media/feature background.48c87a8839559c61c41a.jpg",
@@ -12,10 +12,10 @@
     "static/media/red-mori.png": "/static/media/red-mori.f82d120b55fdb215a41f.png",
     "index.html": "/index.html",
     "main.c4cde58e.css.map": "/static/css/main.c4cde58e.css.map",
-    "main.49cec35b.js.map": "/static/js/main.49cec35b.js.map"
+    "main.91225ab4.js.map": "/static/js/main.91225ab4.js.map"
   },
   "entrypoints": [
     "static/css/main.c4cde58e.css",
-    "static/js/main.49cec35b.js"
+    "static/js/main.91225ab4.js"
   ]
 }
