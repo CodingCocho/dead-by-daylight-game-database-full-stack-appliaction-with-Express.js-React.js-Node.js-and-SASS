@@ -2,12 +2,12 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js --ignore client",
-    "dev": "nodemon server"
+    "start": "node server.js --ignore client",
+    "dev": "node server.js"
   },
   "keywords": [],
   "author": "",
