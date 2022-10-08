@@ -21,7 +21,7 @@
     "react"
   ],
   "scripts": {
-    "start": "node server",
+    "start": "node server/index.js",
     "build": "cd client/ && npm install && npm run build --output public"
   }
 }
