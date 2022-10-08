@@ -22,6 +22,6 @@
   ],
   "scripts": {
     "start": "node server",
-    "build": "cd client/ && npm install && npm run build"
+    "build": "cd client/ && npm install && npm run build --output public"
   }
 }
