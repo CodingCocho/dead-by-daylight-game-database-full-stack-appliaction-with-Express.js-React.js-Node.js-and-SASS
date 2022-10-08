@@ -1,10 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import './styles/Home.css'
-import axios from 'axios';
-import {useEffect, useState} from 'react';
-import {addKillers} from '../utilities/Killerslice';
-import {addSurvivors} from '../utilities/Survivorslice';
-import{useDispatch,useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {Navbar} from '../components/Navbar';
 import Ghostface from '../images/ghost-face-lore-ii.png';
@@ -12,11 +7,6 @@ import YuJinLee from '../images/yun-jin-lee-lore-art.jfif';
 
 export const Home = () =>
 {
-  const dispatch = useDispatch();
-  const fetchedKillers = useSelector(state => state.killers.fetched)
-  const fetchedSurvivors = useSelector(state => state.survivors.fetched)
-  const [killers, setKillers] = useState([])
-  const [survivors, setSurvivors] = useState([])
 
 
     return (
