@@ -3,102 +3,122 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const needle = require('needle');
-const app = express()
+const cluster = require('cluster');
+const isDev = process.env.NODE_ENV !== 'production';
+const PORT = process.env.PORT || 5000;
 
-app.use(cors({origin: true, credentials: true}));
-
-// app.use(express.static(__dirname + '/images'));
-
-app.use(express.static(path.join(__dirname + "/build")));
-
-
-app.get('/home', (req, res) =>
-{
-    res.redirect('/home');
-})
-
-app.get('/survivors', (req, res) =>
-{
-    res.redirect('/');
-})
-
-app.get('/killers', (req, res) =>
-{
-    res.redirect('/');
-})
-
-app.get('/survivors/:survivorId', (req, res) =>
-{
-    res.redirect('/');
-})
-
-app.get('/killers/:killerId', (req, res) =>
-{
-    res.redirect('/');
-})
-
-app.get('/api/survivors',  async (req, res) =>
-{
-    try
-    {
-        const response = await needle('get', 'https://dead-by-api.herokuapp.com/api/survs')
-        const data = response.body;
-        res.status(200).json(data);
+if (!isDev && cluster.isMaster) {
+    console.error(`Node cluster master ${process.pid} is running`);
+  
+    // Fork workers.
+    for (let i = 0; i < numCPUs; i++) {
+      cluster.fork();
     }
-    catch(err)
-    {
-        console.log(err)
-        res.status(500).json({error})
-    }
-})
+  
+    cluster.on('exit', (worker, code, signal) => {
+      console.error(`Node cluster worker ${worker.process.pid} exited: code ${code}, signal ${signal}`);
+    });
+  
+  } else {
+    const app = express();
+  
+    // Priority serve any static files.
+    app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-app.get('/api/killers',  async (req, res) =>
-{
-    try
+    app.use(cors({origin: true, credentials: true}));
+  
+    app.get('/home', (req, res) =>
     {
-        const response = await needle('get', 'https://dead-by-api.herokuapp.com/api/killers')
-        const data = response.body;
-        res.status(200).json(data);
-    }
-    catch(err)
-    {
-        console.log(err)
-        res.status(500).json({error})
-    }
-})
+        res.redirect('/home');
+    })
 
-app.get('/api/survivors/perks',  async (req, res) =>
-{
-    try
+    app.get('/survivors', (req, res) =>
     {
-        const response = await needle('get', 'https://dead-by-api.herokuapp.com/api/perks/surv')
-        const data = response.body;
-        res.status(200).json(data);
-    }
-    catch(err)
-    {
-        console.log(err)
-        res.status(500).json({error})
-    }
-})
-app.get('/api/killers/perks',  async (req, res) =>
-{
-    try
-    {
-        const response = await needle('get', 'https://dead-by-api.herokuapp.com/api/perks/killer')
-        const data = response.body;
-        res.status(200).json(data);
-    }
-    catch(err)
-    {
-        console.log(err)
-        res.status(500).json({error})
-    }
-})
-    
-app.listen(8080, () =>
-{
-    console.log("Server started on port 8080")
-})
+        res.redirect('/');
+    })
 
-module.exports = app;
+    app.get('/killers', (req, res) =>
+    {
+        res.redirect('/');
+    })
+
+    app.get('/survivors/:survivorId', (req, res) =>
+    {
+        res.redirect('/');
+    })
+
+    app.get('/killers/:killerId', (req, res) =>
+    {
+        res.redirect('/');
+    })
+
+    app.get('/api/survivors',  async (req, res) =>
+    {
+        try
+        {
+            const response = await needle('get', 'https://dead-by-api.herokuapp.com/api/survs')
+            const data = response.body;
+            res.status(200).json(data);
+        }
+        catch(err)
+        {
+            console.log(err)
+            res.status(500).json({error})
+        }
+    })
+
+    app.get('/api/killers',  async (req, res) =>
+    {
+        try
+        {
+            const response = await needle('get', 'https://dead-by-api.herokuapp.com/api/killers')
+            const data = response.body;
+            res.status(200).json(data);
+        }
+        catch(err)
+        {
+            console.log(err)
+            res.status(500).json({error})
+        }
+    })
+
+    app.get('/api/survivors/perks',  async (req, res) =>
+    {
+        try
+        {
+            const response = await needle('get', 'https://dead-by-api.herokuapp.com/api/perks/surv')
+            const data = response.body;
+            res.status(200).json(data);
+        }
+        catch(err)
+        {
+            console.log(err)
+            res.status(500).json({error})
+        }
+    })
+    app.get('/api/killers/perks',  async (req, res) =>
+    {
+        try
+        {
+            const response = await needle('get', 'https://dead-by-api.herokuapp.com/api/perks/killer')
+            const data = response.body;
+            res.status(200).json(data);
+        }
+        catch(err)
+        {
+            console.log(err)
+            res.status(500).json({error})
+        }
+    })
+  
+    // All remaining requests return the React app, so it can handle routing.
+    app.get('*', function(request, response) {
+      response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+    });
+  
+    app.listen(PORT, function () {
+      console.error(`Node ${isDev ? 'dev server' : 'cluster worker '+process.pid}: listening on port ${PORT}`);
+    });
+
+  }
+

@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App/App';
-import store from './utilities/Store'
-import { Provider } from 'react-redux'
+import store from './utilities/Store';
+import { Provider } from 'react-redux';
+import * as serviceWorker from './serviceWorker';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,4 +14,5 @@ root.render(
      </Provider>
   </React.StrictMode>
 );
+serviceWorker.unregister();
 

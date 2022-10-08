@@ -1,0 +1,24 @@
+{
+  "name": "heroku-cra-node",
+  "version": "3.0.0",
+  "description": "How to use create-react-app with a custom Node API on Heroku",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "needle": "^3.1.0"
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],
+  "keywords": [
+    "node",
+    "heroku",
+    "create-react-app",
+    "react"
+  ],
+  "scripts": {
+    "start": "node server",
+    "build": "cd client/ && yarn install && yarn run build"
+  }
+}
