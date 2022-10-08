@@ -98,7 +98,7 @@
     transform: translate(0, 0) skew(5deg);
   }
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 1024px) {
   .AgeConfirmation .header {
     font-size: 3rem !important;
     width: 350px !important;
