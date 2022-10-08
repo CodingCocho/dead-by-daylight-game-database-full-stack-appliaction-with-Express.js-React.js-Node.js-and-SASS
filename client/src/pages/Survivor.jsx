@@ -1,10 +1,7 @@
 /* eslint-disable array-callback-return */
 import './styles/Survivor.css';
-import axios from 'axios';
-import {addSurvivors} from '../utilities/Survivorslice';
-import {useEffect, useState} from 'react';
 import {Navbar} from '../components/Navbar';
-import{useDispatch} from 'react-redux';
+import{useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom'
 
 
@@ -12,42 +9,13 @@ import {useParams} from 'react-router-dom'
 export const Survivor = () =>
 {
 
-    const dispatch = useDispatch();
     const params = useParams();
-    const [survivors, setSurvivors] = useState([]);
-    const [pageSurvivor, setPageSurvivor] = useState({});
-    const [perks, setPerks] = useState([]);
-    const [loading, setLoading] = useState(false)
+    const pageSurvivor = useSelector(state => state.survivors.survivors[params.survivorId]);
+    const perks = useSelector(state => state.survivors.perks)
 
-    const fetchSurvivor = async () =>
-    {
-        try
-        {
-            const survivorResponse = await axios.get('https://thingproxy.freeboard.io/fetch/https://dead-by-api.herokuapp.com/api/survs');
-            const perksResponse = await axios.get('https://thingproxy.freeboard.io/fetch/https://dead-by-api.herokuapp.com/api/perks/surv');
+   
 
-            setSurvivors(survivorResponse.data.data);
-            setPerks(perksResponse.data.data);
-            setPageSurvivor(survivorResponse.data.data[params.survivorId]);
-            setLoading(true)
-        }
-        catch(err)
-        {
-            alert(err.message)
-        }
-    }
-
-    if(survivors.length)
-    {
-        dispatch(addSurvivors(survivors))
-    }
-
-    useEffect(() => 
-    {
-        fetchSurvivor();
-    }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      , [])
+ 
 console.log(perks)
     return (
         <div 
@@ -57,8 +25,7 @@ console.log(perks)
             <div 
             className="page"
             >
-                {
-                    loading &&
+                
                     <div 
                     className="image-container"
                     >
@@ -67,9 +34,7 @@ console.log(perks)
                         src={pageSurvivor.imgs.store}
                         />
                     </div>
-                    }
-                    {
-                    loading &&
+                 
                     <div 
                     className="flex-container"
                     >
@@ -131,7 +96,6 @@ console.log(perks)
                             {pageSurvivor.overview}
                         </p>
                     </div>
-                    }
             </div>
         </div>
     )

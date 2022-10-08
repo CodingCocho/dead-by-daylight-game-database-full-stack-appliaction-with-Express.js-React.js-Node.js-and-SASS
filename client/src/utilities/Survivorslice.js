@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
     survivors: [],
-    fetched: false
+    perks: []
 }
 
 
@@ -14,12 +14,15 @@ const survivorsSlice = createSlice(
             addSurvivors(state, action)
             {
                 state.survivors = action.payload;
-                state.fetched = true;
+            },
+            addSurvivorPerks(state, action)
+            {
+                state.perks = action.payload;
             }
         }
     }
 )
 
-export const {addSurvivors} = survivorsSlice.actions;
+export const {addSurvivors, addSurvivorPerks} = survivorsSlice.actions;
 
 export default survivorsSlice.reducer;

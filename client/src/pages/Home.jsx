@@ -18,47 +18,6 @@ export const Home = () =>
   const [killers, setKillers] = useState([])
   const [survivors, setSurvivors] = useState([])
 
-const fetchSurvivors = async () =>
-{
-    try
-    {
-        const survsResponse = await axios.get('https://thingproxy.freeboard.io/fetch/https://dead-by-api.herokuapp.com/api/survs');
-        setSurvivors(survsResponse.data.data);
-    }
-    catch(err)
-    {
-        alert(err.message)
-    }
-}
-
-const fetchKillers = async () =>
-{
-    try
-    {
-        const killerResponse = await axios.get('https://thingproxy.freeboard.io/fetch/https://dead-by-api.herokuapp.com/api/killers');
-        setKillers(killerResponse.data.data);
-    }
-    catch(err)
-    {
-        alert(err.message)
-    }
-}  
-
-if(killers.length && survivors.length && !fetchedKillers && !fetchedSurvivors)
-{
-  dispatch(addKillers(killers))
-  dispatch(addSurvivors(survivors))
-}
-
-
-  useEffect(() => {
-    if(!fetchedKillers && !fetchedSurvivors)
-    {
-      fetchSurvivors();
-      fetchKillers();
-    }
-  }
-  , [])
 
     return (
         <div 

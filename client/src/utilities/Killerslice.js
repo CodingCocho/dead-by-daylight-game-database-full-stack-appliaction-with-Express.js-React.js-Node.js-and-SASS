@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
     killers: [],
-    fetched: false
+    perks: []
 }
 
 
@@ -14,12 +14,15 @@ const killersSlice = createSlice(
             addKillers(state, action)
             {
                 state.killers = action.payload;
-                state.fetched = true;
+            },
+            addKillerPerks(state, action)
+            {
+                state.perks = action.payload;
             }
         }
     }
 )
 
-export const {addKillers} = killersSlice.actions;
+export const {addKillers, addKillerPerks} = killersSlice.actions;
 
 export default killersSlice.reducer;

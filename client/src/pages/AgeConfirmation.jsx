@@ -74,7 +74,7 @@ export const AgeConfirmation = () =>
         let inputMonth = monthRef.current.value - 1;
         let inputDay = dayRef.current.value;
         let inputYear  = yearRef.current.value;
-        console.log(inputMonth);
+        
         if(isNaN(inputDay) || isNaN(inputMonth) || isNaN(inputYear))
         {
             return false;
